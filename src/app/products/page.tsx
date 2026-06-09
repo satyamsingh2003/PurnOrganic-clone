@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import ProductGrid from '@/components/ProductGrid/ProductGrid';
 
@@ -15,7 +15,7 @@ const allProducts = [
   { id: '8', name: 'Mustard Oil', price: 299.00, image: '/hero_background.png', link: '/product/mustard-oil', category: 'cold-pressed-oils' },
 ];
 
-export default function ProductsPage() {
+function ProductsContent() {
   const searchParams = useSearchParams();
   const categoryParam = searchParams.get('category');
 
@@ -28,23 +28,33 @@ export default function ProductsPage() {
     : 'All Products';
 
   return (
+    <>
+      <h1 className="section-title" style={{ textAlign: 'left' }}>{pageTitle}</h1>
+      <p style={{ color: 'var(--text-light)', marginBottom: '2rem' }}>
+        Showing {filteredProducts.length} result{filteredProducts.length !== 1 ? 's' : ''}
+      </p>
+      
+      {filteredProducts.length > 0 ? (
+        <div style={{ marginTop: '-4rem' }}>
+          {/* Reusing ProductGrid without the section title */}
+          <ProductGrid title="" products={filteredProducts} />
+        </div>
+      ) : (
+        <div style={{ textAlign: 'center', padding: '4rem 0' }}>
+          <h3>No products found in this category.</h3>
+        </div>
+      )}
+    </>
+  );
+}
+
+export default function ProductsPage() {
+  return (
     <div style={{ backgroundColor: 'var(--bg-light)', minHeight: '80vh' }}>
       <div className="section-padding container">
-        <h1 className="section-title" style={{ textAlign: 'left' }}>{pageTitle}</h1>
-        <p style={{ color: 'var(--text-light)', marginBottom: '2rem' }}>
-          Showing {filteredProducts.length} result{filteredProducts.length !== 1 ? 's' : ''}
-        </p>
-        
-        {filteredProducts.length > 0 ? (
-          <div style={{ marginTop: '-4rem' }}>
-            {/* Reusing ProductGrid without the section title */}
-            <ProductGrid title="" products={filteredProducts} />
-          </div>
-        ) : (
-          <div style={{ textAlign: 'center', padding: '4rem 0' }}>
-            <h3>No products found in this category.</h3>
-          </div>
-        )}
+        <Suspense fallback={<div style={{ textAlign: 'center', padding: '4rem 0' }}>Loading products...</div>}>
+          <ProductsContent />
+        </Suspense>
       </div>
     </div>
   );
