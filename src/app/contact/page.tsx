@@ -44,7 +44,7 @@ export default async function ContactPage() {
               <div>
                 <h3 className={styles.contactLabel}>Visit Us</h3>
                 <p className={styles.contactValue}>
-                  {address.split('\n').map((line, i) => (
+                  {address.split('\n').map((line: string, i: number) => (
                     <React.Fragment key={i}>
                       {line}
                       <br/>

@@ -14,6 +14,7 @@ interface Product {
   category?: string;
   category_slug?: string;
   category_name?: string;
+  short_description?: string;
 }
 
 export default function ProductsContent({ allProducts, hideHeader = false }: { allProducts: Product[], hideHeader?: boolean }) {

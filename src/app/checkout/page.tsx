@@ -20,7 +20,7 @@ interface Address {
 
 export default function CheckoutPage() {
   const router = useRouter();
-  const { cartItems, cartTotal, shippingCharge, finalTotal, updateStateAndSync, updateQuantity } = useCart();
+  const { cartItems, cartTotal, shippingCharge, finalTotal, clearCart, updateQuantity } = useCart();
   
   const [loading, setLoading] = useState(true);
   const [addresses, setAddresses] = useState<Address[]>([]);
@@ -212,9 +212,8 @@ export default function CheckoutPage() {
       
       if (res.ok) {
         // Clear local cart context manually or via a new function
-        if (updateStateAndSync) {
-            // @ts-ignore
-            updateStateAndSync([]);
+        if (clearCart) {
+            clearCart();
         } else {
             localStorage.removeItem('purn_cart');
         }

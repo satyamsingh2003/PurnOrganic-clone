@@ -13,21 +13,38 @@ export const dynamic = 'force-dynamic';
 export default async function Home() {
   // Fetch active banners
   const bannersRes = await sql`SELECT * FROM banners WHERE active = true ORDER BY sort_order ASC`;
-  const banners = bannersRes.map(b => ({ ...b, id: String(b.id) }));
+  const banners = bannersRes.map(b => ({
+    id: String(b.id),
+    title: b.title || '',
+    subtitle: b.subtitle || '',
+    image: b.image || '',
+    button_text: b.button_text || '',
+    button_url: b.button_url || ''
+  }));
 
   // Fetch published blogs
   const blogsRes = await sql`SELECT * FROM blogs WHERE published = true ORDER BY created_at DESC LIMIT 3`;
   const blogs = blogsRes.map(b => ({
-    ...b,
     id: String(b.id),
+    title: b.title || '',
+    excerpt: b.excerpt || '',
+    image: b.image || '',
+    slug: b.slug || String(b.id),
     date: new Date(b.created_at).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })
   }));
 
-  // Fetch most loved products (e.g. limit 4)
+  // Fetch most Loved products
   const mostLovedRes = await sql`SELECT * FROM products WHERE active IS NOT FALSE AND featured = true ORDER BY sort_order ASC, id DESC LIMIT 4`;
-  const mostLovedProducts = mostLovedRes.map(p => ({ ...p, id: String(p.id), price: Number(p.price), mrp: p.mrp ? Number(p.mrp) : undefined, link: `/product/${p.slug || p.id}` }));
+  const mostLovedProducts = mostLovedRes.map(p => ({
+    id: String(p.id),
+    name: p.name || '',
+    image: p.image || '',
+    price: Number(p.price) || 0,
+    mrp: p.mrp ? Number(p.mrp) : undefined,
+    link: `/product/${p.slug || p.id}`
+  }));
 
-  // Fetch Organic Masala products (e.g. category 'handground-spices')
+  // Fetch Organic Masala products
   const masalaRes = await sql`
     SELECT p.*, c.slug as category_slug, c.name as category_name 
     FROM products p 
@@ -36,7 +53,14 @@ export default async function Home() {
     ORDER BY p.sort_order ASC, p.id DESC
     LIMIT 4
   `;
-  const organicMasalaProducts = masalaRes.map(p => ({ ...p, id: String(p.id), price: Number(p.price), mrp: p.mrp ? Number(p.mrp) : undefined, link: `/product/${p.slug || p.id}` }));
+  const organicMasalaProducts = masalaRes.map(p => ({
+    id: String(p.id),
+    name: p.name || '',
+    image: p.image || '',
+    price: Number(p.price) || 0,
+    mrp: p.mrp ? Number(p.mrp) : undefined,
+    link: `/product/${p.slug || p.id}`
+  }));
 
   return (
     <>

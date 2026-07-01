@@ -31,7 +31,7 @@ export default async function ProductPage({
   }
 
   const rawProduct = products[0];
-  const product = {
+  const product: any = {
     ...rawProduct,
     id: String(rawProduct.id),
     price: Number(rawProduct.price),
@@ -39,7 +39,7 @@ export default async function ProductPage({
   };
 
   // Fetch related products (same category, excluding current product)
-  let relatedProducts = [];
+  let relatedProducts: any[] = [];
   if (product.category_id) {
     const relatedRes = await sql`
       SELECT p.*, c.slug as category_slug, c.name as category_name

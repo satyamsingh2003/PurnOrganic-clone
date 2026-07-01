@@ -17,7 +17,9 @@ export default async function ProductsPage() {
   const formattedProducts = products.map(p => ({
     ...p,
     id: String(p.id),
-    price: Number(p.price),
+    name: p.name || '',
+    image: p.image || '',
+    price: Number(p.price) || 0,
     mrp: p.mrp ? Number(p.mrp) : undefined,
     link: `/product/${p.slug || p.id}`
   }));

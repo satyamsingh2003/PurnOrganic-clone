@@ -2,7 +2,7 @@ import { jwtVerify, SignJWT } from 'jose';
 
 interface JwtPayload {
   id: string | number;
-  email: string;
+  email?: string;
   role: string;
   [key: string]: any;
 }

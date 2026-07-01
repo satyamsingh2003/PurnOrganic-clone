@@ -17,6 +17,7 @@ interface CartContextType {
   addToCart: (item: Omit<CartItem, 'quantity'> & { quantity?: number }) => void;
   removeFromCart: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
+  clearCart: () => void;
   toggleCart: () => void;
   cartTotal: number;
   cartCount: number;
@@ -142,6 +143,10 @@ export const CartProvider = ({ children, settings = {} }: { children: ReactNode,
     updateStateAndSync(newItems);
   };
 
+  const clearCart = () => {
+    updateStateAndSync([]);
+  };
+
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen);
   };
@@ -159,6 +164,7 @@ export const CartProvider = ({ children, settings = {} }: { children: ReactNode,
       addToCart,
       removeFromCart,
       updateQuantity,
+      clearCart,
       toggleCart,
       cartTotal,
       cartCount,
