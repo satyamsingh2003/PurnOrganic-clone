@@ -27,6 +27,7 @@ export default function SettingsPage() {
     facebook_url: '',
     youtube_url: '',
     twitter_url: '',
+    free_shipping_threshold: '',
     standard_shipping_charge: '',
     site_logo: '',
     favicon: '',
