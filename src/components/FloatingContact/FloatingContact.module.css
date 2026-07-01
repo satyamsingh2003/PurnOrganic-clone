@@ -1,0 +1,121 @@
+.fabContainer {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.fabMenu {
+  position: absolute;
+  bottom: calc(100% + 1rem);
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fabMenu.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.fabAction {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.fabAction:hover {
+  transform: scale(1.05);
+}
+
+.fabLabel {
+  background-color: white;
+  color: #374151;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.iconWrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.fabMain {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(26, 77, 46, 0.3);
+  transition: all 0.3s ease;
+  animation: float 3s ease-in-out infinite;
+}
+
+.fabContainer:hover .fabMain {
+  transform: scale(1.1);
+  background-color: var(--primary-light);
+  animation: none;
+}
+
+.fabMainIcon {
+  transition: transform 0.3s ease;
+}
+
+.fabContainer:hover .fabMainIcon {
+  transform: scale(1.1);
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+    box-shadow: 0 6px 16px rgba(26, 77, 46, 0.3);
+  }
+  50% {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(26, 77, 46, 0.2);
+  }
+  100% {
+    transform: translateY(0px);
+    box-shadow: 0 6px 16px rgba(26, 77, 46, 0.3);
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .fabContainer {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+  
+  .fabMain {
+    width: 56px;
+    height: 56px;
+  }
+}

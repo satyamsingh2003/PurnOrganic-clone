@@ -10,6 +10,7 @@ interface Product {
   id: string;
   name: string;
   price: number;
+  mrp?: number;
   image: string;
   link: string;
 }
@@ -51,7 +52,12 @@ const ProductGrid: React.FC<ProductGridProps> = ({ title, products, viewAllLink 
                   <h3 className={styles.productName}>{product.name}</h3>
                 </Link>
                 <div className={styles.bottomRow}>
-                  <span className={styles.price}>₹{product.price.toFixed(2)}</span>
+                  <div className={styles.priceContainer}>
+                    {product.mrp && product.mrp > product.price && (
+                      <span className={styles.mrp}>₹{product.mrp.toFixed(2)}</span>
+                    )}
+                    <span className={styles.price}>₹{product.price.toFixed(2)}</span>
+                  </div>
                   <button 
                     className={styles.addToCartBtn} 
                     aria-label="Add to cart"
@@ -59,6 +65,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({ title, products, viewAllLink 
                       id: product.id,
                       name: product.name,
                       price: product.price,
+                      mrp: product.mrp,
                       image: product.image,
                     })}
                   >

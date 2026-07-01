@@ -7,9 +7,9 @@ import CartDrawer from '@/components/CartDrawer/CartDrawer';
 import SearchModal from '@/components/SearchModal/SearchModal';
 import MobileMenu from '@/components/MobileMenu/MobileMenu';
 
-export default function Providers({ children }: { children: ReactNode }) {
+export default function Providers({ children, settings }: { children: ReactNode, settings?: Record<string, string> }) {
   return (
-    <CartProvider>
+    <CartProvider settings={settings}>
       <UIProvider>
         {children}
         <CartDrawer />

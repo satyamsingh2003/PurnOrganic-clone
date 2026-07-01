@@ -1,0 +1,229 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f8f4; /* Very light green/gray matching the image bg */
+  padding: 2rem;
+}
+
+.loginCard {
+  display: flex;
+  background-color: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 850px;
+  min-height: 500px;
+}
+
+/* Left Branding Section */
+.brandingSection {
+  flex: 0.9;
+  background: linear-gradient(135deg, #1d4d29 0%, #2a6a3b 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 3rem;
+  text-align: center;
+}
+
+.brandingContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logoBox {
+  background-color: white;
+  color: var(--primary-color);
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.brandName {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0.5rem;
+}
+
+.adminText {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.dots span:nth-child(2) {
+  background-color: white;
+}
+
+/* Right Form Section */
+.formSection {
+  flex: 1.1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  background-color: white;
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 320px;
+}
+
+.formHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.shieldIcon {
+  background-color: rgba(76, 154, 42, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.formTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.3rem;
+}
+
+.formSubtitle {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.inputGroup label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #1d4d29;
+  letter-spacing: 0.5px;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  transition: all 0.2s;
+  background-color: white;
+}
+
+.inputWrapper:focus-within {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(76, 154, 42, 0.1);
+}
+
+.inputIcon {
+  color: var(--text-light);
+  margin-right: 0.8rem;
+}
+
+.inputWrapper input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  background: transparent;
+  width: 100%;
+}
+
+.inputWrapper input::placeholder {
+  color: #a0aab5;
+}
+
+.eyeBtn {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-left: 0.5rem;
+}
+
+.submitBtn {
+  background-color: #1d4d29;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.submitBtn:hover {
+  background-color: #153b1e;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .loginCard {
+    flex-direction: column;
+  }
+  .brandingSection {
+    padding: 2rem;
+  }
+  .formSection {
+    padding: 2rem 1.5rem;
+  }
+}

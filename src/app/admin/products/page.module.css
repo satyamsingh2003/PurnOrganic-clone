@@ -1,0 +1,215 @@
+.page {
+  padding: 1.5rem;
+  background: #f4f6f8;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.subtitle {
+  color: var(--text-light);
+  margin: 0.2rem 0 0 0;
+  font-size: 0.9rem;
+}
+
+.addBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--primary-color);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.addBtn:hover {
+  background: var(--primary-dark);
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.searchBox input {
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  width: 300px;
+  font-size: 0.9rem;
+}
+
+.filterSelect {
+  padding: 0.6rem 2rem 0.6rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: white;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+}
+
+.filterBtn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.6rem 2rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.resetBtn {
+  background: white;
+  color: var(--text-dark);
+  border: 1px solid var(--border-color);
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.tableContainer {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th {
+  padding: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border-color);
+  background: #fafafa;
+}
+
+.table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+}
+
+.productInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background: #f5f5f5;
+  flex-shrink: 0;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.productInfo strong {
+  display: block;
+  font-size: 0.95rem;
+}
+
+.unit {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+.statusBadge {
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.active {
+  background: #e8f5e9;
+  color: #4caf50;
+}
+
+.inactive {
+  background: #ffebee;
+  color: #f44336;
+}
+
+.starActive {
+  color: #ffc107;
+  font-size: 1.2rem;
+}
+
+.starInactive {
+  color: #e0e0e0;
+  font-size: 1.2rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.editBtn, .deleteBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.editBtn {
+  color: #2196f3;
+}
+
+.editBtn:hover {
+  border-color: #2196f3;
+  background: #e3f2fd;
+}
+
+.deleteBtn {
+  color: #f44336;
+}
+
+.deleteBtn:hover {
+  border-color: #f44336;
+  background: #ffebee;
+}

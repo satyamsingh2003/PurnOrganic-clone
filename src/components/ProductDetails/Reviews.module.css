@@ -1,0 +1,144 @@
+.reviewsContainer {
+  margin-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5rem;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.reviewList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.reviewCard {
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.4rem;
+}
+
+.reviewerName {
+  font-weight: 700;
+  color: var(--text-dark);
+  font-size: 1.05rem;
+}
+
+.stars {
+  color: #fbbf24;
+  letter-spacing: 2px;
+  font-size: 1.1rem;
+}
+
+.reviewText {
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+/* Write a Review Form */
+.formContainer {
+  background-color: var(--bg-light);
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+}
+
+.formTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+.formRow {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .formRow {
+    flex-direction: row;
+  }
+}
+
+.formGroup {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.input, .select, .textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text-dark);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background-color: var(--white);
+}
+
+.input:focus, .select:focus, .textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(26, 77, 46, 0.1);
+}
+
+.textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.submitBtn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  align-self: flex-start;
+}
+
+.submitBtn:hover {
+  background-color: var(--primary-light);
+}
+
+.toast {
+  background-color: #ecfccb;
+  color: #4d7c0f;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

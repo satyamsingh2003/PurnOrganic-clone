@@ -2,11 +2,19 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
 import styles from './CartDrawer.module.css';
 
 const CartDrawer = () => {
-  const { isCartOpen, toggleCart, cartItems, removeFromCart, updateQuantity, cartTotal } = useCart();
+  const { isCartOpen, toggleCart, cartItems, removeFromCart, updateQuantity, cartTotal, shippingCharge, finalTotal, freeShippingThreshold } = useCart();
+
+  const totalDiscount = cartItems.reduce((acc, item) => {
+    if (item.mrp && item.mrp > item.price) {
+      return acc + ((item.mrp - item.price) * item.quantity);
+    }
+    return acc;
+  }, 0);
 
   if (!isCartOpen) return null;
 
@@ -34,7 +42,12 @@ const CartDrawer = () => {
                   </div>
                   <div className={styles.itemDetails}>
                     <h3 className={styles.itemName}>{item.name}</h3>
-                    <p className={styles.itemPrice}>₹{item.price.toFixed(2)}</p>
+                    <div className={styles.priceContainer}>
+                      {item.mrp && item.mrp > item.price && (
+                        <span className={styles.mrpPrice}>₹{item.mrp.toFixed(2)}</span>
+                      )}
+                      <p className={styles.itemPrice}>₹{item.price.toFixed(2)}</p>
+                    </div>
                     <div className={styles.quantityControl}>
                       <button onClick={() => updateQuantity(item.id, item.quantity - 1)}>-</button>
                       <span>{item.quantity}</span>
@@ -52,12 +65,32 @@ const CartDrawer = () => {
 
         {cartItems.length > 0 && (
           <div className={styles.footer}>
-            <div className={styles.totalRow}>
+            <div className={styles.totalRow} style={{ fontSize: '0.85rem', color: '#666', marginBottom: '0.25rem', fontWeight: 'normal' }}>
               <span>Subtotal</span>
-              <span className={styles.totalPrice}>₹{cartTotal.toFixed(2)}</span>
+              <span>₹{(cartTotal + totalDiscount).toFixed(2)}</span>
             </div>
-            <p className={styles.taxNote}>Taxes and shipping calculated at checkout</p>
-            <button className={`btn-primary ${styles.checkoutBtn}`}>Proceed to Checkout</button>
+            {totalDiscount > 0 && (
+              <div className={styles.totalRow} style={{ fontSize: '0.85rem', color: '#16a34a', marginBottom: '0.25rem', fontWeight: '500' }}>
+                <span>Discount</span>
+                <span>-₹{totalDiscount.toFixed(2)}</span>
+              </div>
+            )}
+            <div className={styles.totalRow} style={{ fontSize: '0.85rem', color: '#666', marginBottom: '0.75rem', fontWeight: 'normal' }}>
+              <span>Shipping</span>
+              <span>{shippingCharge === 0 ? 'Free' : `₹${shippingCharge.toFixed(2)}`}</span>
+            </div>
+            <div className={styles.totalRow}>
+              <span>Total</span>
+              <span className={styles.totalPrice}>₹{finalTotal.toFixed(2)}</span>
+            </div>
+            {shippingCharge > 0 && freeShippingThreshold > 0 && (
+              <p className={styles.taxNote} style={{ color: 'var(--primary-color)', fontWeight: '500', fontSize: '0.75rem', marginBottom: '0.75rem' }}>
+                Add ₹{(freeShippingThreshold - cartTotal).toFixed(2)} more for free shipping!
+              </p>
+            )}
+            <Link href="/checkout" onClick={toggleCart} style={{ display: 'block', width: '100%', textDecoration: 'none' }}>
+              <button className={`btn-primary ${styles.checkoutBtn}`} style={{ width: '100%' }}>Proceed to Checkout</button>
+            </Link>
           </div>
         )}
       </div>

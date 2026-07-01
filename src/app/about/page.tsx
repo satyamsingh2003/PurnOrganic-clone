@@ -1,9 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
+import Strengths from '@/components/Strengths/Strengths';
+import RevealOnScroll from '@/components/RevealOnScroll/RevealOnScroll';
 
 export default function AboutPage() {
   return (
-    <div className="section-padding">
+    <>
+      <div className="section-padding">
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <h1 className="section-title">Our Story</h1>
@@ -14,7 +17,7 @@ export default function AboutPage() {
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'center' }}>
           <div style={{ position: 'relative', height: '400px', borderRadius: '12px', overflow: 'hidden' }}>
-            <Image src="/hero_background.png" alt="Organic Farm" fill style={{ objectFit: 'cover' }} />
+            <Image src="https://uvb9swoktkk6ztcv.public.blob.vercel-storage.com/hero_background.png" alt="Organic Farm" fill style={{ objectFit: 'cover' }} />
           </div>
           <div>
             <h2 style={{ fontSize: '2rem', color: 'var(--primary-color)', marginBottom: '1.5rem' }}>Empowering Local Farmers</h2>
@@ -27,6 +30,11 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+      
+      <RevealOnScroll>
+        <Strengths />
+      </RevealOnScroll>
+    </>
   );
 }

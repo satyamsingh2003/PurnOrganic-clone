@@ -1,0 +1,296 @@
+.pageContainer {
+  padding: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  font-family: var(--font-inter), sans-serif;
+}
+
+.header {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sortLabel {
+  font-size: 0.85rem;
+  color: #4b5563;
+  font-weight: 500;
+}
+
+.sortSelect {
+  padding: 0.4rem 2rem 0.4rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background-color: white;
+  font-size: 0.85rem;
+  color: #374151;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1rem;
+}
+
+.sortSelect:focus {
+  border-color: #1a4d2e;
+  box-shadow: 0 0 0 2px rgba(26, 77, 46, 0.1);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.tableContainer {
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  border: 1px solid #e5e7eb;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th {
+  padding: 1rem 1.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #e5e7eb;
+  background-color: #fafafa;
+}
+
+.table td {
+  padding: 1rem 1.5rem;
+  font-size: 0.875rem;
+  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.bold {
+  font-weight: 500;
+  color: #111827;
+}
+
+.truncate {
+  max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 4rem 2rem !important;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.statusSelectPending {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #b45309;
+  background: #fef3c7;
+  padding: 0.35rem 1.5rem 0.35rem 0.75rem;
+  border-radius: 4px;
+  border: 1px solid #fde68a;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23b45309'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.25rem center;
+  background-size: 1rem;
+}
+
+.statusSelectReviewed {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #166534;
+  background: #dcfce7;
+  padding: 0.35rem 1.5rem 0.35rem 0.75rem;
+  border-radius: 4px;
+  border: 1px solid #bbf7d0;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23166534'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.25rem center;
+  background-size: 1rem;
+}
+
+.statusSelectPending:focus, .statusSelectReviewed:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(26, 77, 46, 0.2);
+}
+
+.actionBtn {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #1a4d2e;
+  background: #eff6ee;
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.actionBtn:hover {
+  background: #1a4d2e;
+  color: white;
+}
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modalContent {
+  background: white;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.modalTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.closeBtn:hover {
+  color: #111827;
+}
+
+.modalBody {
+  padding: 1.5rem;
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+.modalRow {
+  margin-bottom: 0.75rem;
+}
+
+.modalRow strong {
+  display: inline-block;
+  width: 70px;
+  color: #111827;
+}
+
+.messageBox {
+  margin-top: 1.5rem;
+  background: #f9fafb;
+  padding: 1rem;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+}
+
+.messageBox strong {
+  color: #111827;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.messageText {
+  white-space: pre-wrap;
+  line-height: 1.6;
+  margin: 0;
+  color: #4b5563;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.modalFooter {
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: flex-end;
+  background: #f9fafb;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.closeModalBtn {
+  background: white;
+  border: 1px solid #d1d5db;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.closeModalBtn:hover {
+  background: #f3f4f6;
+}

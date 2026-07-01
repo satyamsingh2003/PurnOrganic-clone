@@ -8,45 +8,45 @@ const categories = [
     title: 'Organic Daals',
     subtitle: 'Protein-rich farm fresh pulses',
     link: '/products?category=organic-daals',
-    image: '/category_daal.png'
+    image: 'https://uvb9swoktkk6ztcv.public.blob.vercel-storage.com/category_daal.png'
   },
   {
     title: 'Grains & Flours',
     subtitle: 'Traditional Red Rice & Whole Wheat',
     link: '/products?category=grains-flours',
-    image: '/category_spices.png' // Reusing spice image for demo
+    image: 'https://uvb9swoktkk6ztcv.public.blob.vercel-storage.com/category_spices.png' 
   },
   {
     title: 'Handground Spices',
     subtitle: 'Turmeric, Chilli & Black Pepper',
     link: '/products?category=handground-spices',
-    image: '/category_spices.png'
+    image: 'https://uvb9swoktkk6ztcv.public.blob.vercel-storage.com/category_spices.png'
   },
   {
     title: 'Pure Desi Ghee',
     subtitle: 'Traditional Bilona Method Ghee',
     link: '/products?category=pure-desi-ghee',
-    image: '/category_daal.png' // Reusing daal image for demo
+    image: 'https://uvb9swoktkk6ztcv.public.blob.vercel-storage.com/category_daal.png' 
   },
   {
     title: 'Assam Tea',
     subtitle: 'Premium Single-Origin Leaves',
     link: '/products?category=assam-tea',
-    image: '/category_spices.png' // Reusing spice image for demo
+    image: 'https://uvb9swoktkk6ztcv.public.blob.vercel-storage.com/category_spices.png' 
   },
   {
     title: 'Cold Pressed Oils',
     subtitle: 'Pure Mustard & Olive Oils',
     link: '/products?category=cold-pressed-oils',
-    image: '/hero_background.png' // Reusing hero image for demo
+    image: 'https://uvb9swoktkk6ztcv.public.blob.vercel-storage.com/hero_background.png' // Reusing hero image for demo
   }
 ];
 
 const CategoryGrid = () => {
   return (
-    <section className={`section-padding ${styles.categorySection}`}>
+    <section id="categories" className={`section-padding ${styles.categorySection}`}>
       <div className="container">
-        <h2 className="section-title">Shop by Category</h2>
+        <h2 className="section-title">Shop By Categories</h2>
         
         <div className={styles.grid}>
           {categories.map((category, index) => (

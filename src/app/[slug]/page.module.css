@@ -1,0 +1,76 @@
+.pageWrapper {
+  padding: 2rem 0 4rem 0;
+  background-color: #f3f4f6;
+  min-height: 100vh;
+}
+
+.paper {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 3rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.pageTitle {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 2rem;
+  text-align: center;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.contentArea {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #374151;
+}
+
+.contentArea h1, 
+.contentArea h2, 
+.contentArea h3, 
+.contentArea h4 {
+  color: var(--text-dark);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.contentArea h2 {
+  font-size: 1.75rem;
+}
+
+.contentArea h3 {
+  font-size: 1.25rem;
+}
+
+.contentArea p {
+  margin-bottom: 1.25rem;
+}
+
+.contentArea ul, 
+.contentArea ol {
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.contentArea li {
+  margin-bottom: 0.5rem;
+}
+
+.contentArea a {
+  color: #1a4d2e;
+  text-decoration: underline;
+}
+
+.contentArea a:hover {
+  color: #143d24;
+}
+
+.contentArea strong {
+  font-weight: 600;
+  color: #111827;
+}

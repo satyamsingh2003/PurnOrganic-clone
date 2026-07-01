@@ -3,31 +3,18 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from './BlogShowcase.module.css';
 
-const blogs = [
-  {
-    date: 'Apr 28, 2026',
-    title: 'From Soil to Soul: Our commitment to direct farming',
-    excerpt: 'A deep dive into our ethical sourcing process and how we support our local farming community by cutting...',
-    link: '/blog/from-soil-to-soul-our-commitment-to-direct-farming',
-    image: '/hero_background.png' // Using hero background as placeholder
-  },
-  {
-    date: 'May 05, 2026',
-    title: 'Healing Spices: More than just flavor for your food',
-    excerpt: 'From anti-inflammatory turmeric to metabolic-boosting black pepper, learn the science of spices and...',
-    link: '/blog/healing-spices-more-than-just-flavor',
-    image: '/category_spices.png' // Using spices image
-  },
-  {
-    date: 'May 10, 2026',
-    title: 'The Golden Elixir: Why Desi Ghee belongs in your kitchen',
-    excerpt: 'Discover the ancient Ayurvedic benefits of traditional Bilona ghee and how it boosts immunity, aids...',
-    link: '/blog/why-desi-ghee-belongs-in-your-kitchen',
-    image: '/category_daal.png' // Using daal image
-  }
-];
+type Blog = {
+  id: string;
+  title: string;
+  excerpt: string;
+  image: string;
+  slug: string;
+  date: string;
+};
 
-const BlogShowcase = () => {
+const BlogShowcase = ({ blogs }: { blogs: Blog[] }) => {
+  if (!blogs || blogs.length === 0) return null;
+
   return (
     <section className={`section-padding ${styles.blogSection}`}>
       <div className="container">
@@ -40,11 +27,11 @@ const BlogShowcase = () => {
         </div>
         
         <div className={styles.grid}>
-          {blogs.map((blog, index) => (
-            <div key={index} className={styles.card}>
-              <Link href={blog.link} className={styles.imageWrapper}>
+          {blogs.map((blog) => (
+            <div key={blog.id} className={styles.card}>
+              <Link href={`/blog/${blog.slug}`} className={styles.imageWrapper}>
                 <Image 
-                  src={blog.image} 
+                  src={blog.image || "https://uvb9swoktkk6ztcv.public.blob.vercel-storage.com/hero_background.png"} 
                   alt={blog.title}
                   fill
                   className={styles.image}
@@ -52,11 +39,11 @@ const BlogShowcase = () => {
               </Link>
               <div className={styles.content}>
                 <span className={styles.date}>{blog.date}</span>
-                <Link href={blog.link}>
+                <Link href={`/blog/${blog.slug}`}>
                   <h3 className={styles.title}>{blog.title}</h3>
                 </Link>
                 <p className={styles.excerpt}>{blog.excerpt}</p>
-                <Link href={blog.link} className={styles.readMore}>
+                <Link href={`/blog/${blog.slug}`} className={styles.readMore}>
                   Read Story &rarr;
                 </Link>
               </div>

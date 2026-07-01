@@ -1,12 +1,12 @@
 .productSection {
-  background-color: var(--white);
+  background-color: transparent;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
   flex-wrap: wrap;
   gap: 1rem;
 }
@@ -44,15 +44,16 @@
 
 .card {
   background-color: var(--white);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.03);
+  border-radius: 16px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
 .imageWrapper {
@@ -96,27 +97,49 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: auto;
+}
+
+.priceContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .price {
-  font-size: 1.2rem;
+  font-size: 1.125rem;
   font-weight: 700;
-  color: var(--primary-color);
+  color: #111827;
+}
+
+.mrp {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  text-decoration: line-through;
 }
 
 .addToCartBtn {
   background-color: var(--primary-light);
   color: var(--white);
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  transform: translateY(15px) scale(0.9);
+  box-shadow: 0 4px 12px rgba(163, 230, 53, 0.4);
+}
+
+.card:hover .addToCartBtn {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .addToCartBtn:hover {
-  background-color: var(--primary-color);
-  transform: scale(1.1);
+  background-color: var(--primary-color) !important;
+  transform: translateY(-2px) scale(1.05) !important;
+  box-shadow: 0 8px 16px rgba(26, 77, 46, 0.3) !important;
 }
