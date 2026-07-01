@@ -35,7 +35,9 @@ export default function LayoutWrapper({ children, settings }: { children: React.
 
   return (
     <>
-      <Navbar settings={settings} />
+      <React.Suspense fallback={<header style={{height: '70px', background: '#fff'}} />}>
+        <Navbar settings={settings} />
+      </React.Suspense>
       <main>{children}</main>
       <Footer settings={settings} />
       <FloatingContact settings={settings} />

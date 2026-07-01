@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import Link from 'next/link';
 import { useSearchParams, useRouter } from 'next/navigation';
 import styles from './page.module.css';
@@ -15,7 +15,7 @@ type Order = {
   customer_id: number;
 };
 
-export default function OrdersPage() {
+function OrdersContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const statusParam = searchParams.get('status');
@@ -270,5 +270,13 @@ export default function OrdersPage() {
         </table>
       </div>
     </div>
+  );
+}
+
+export default function OrdersPage() {
+  return (
+    <Suspense fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', background: '#f9fafb' }}>Loading Orders...</div>}>
+      <OrdersContent />
+    </Suspense>
   );
 }
